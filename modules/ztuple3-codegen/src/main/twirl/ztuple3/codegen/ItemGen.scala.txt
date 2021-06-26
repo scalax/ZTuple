@@ -1,0 +1,13 @@
+package ztuple3
+package test
+
+object NumberDefined {
+    @for(i <- 1 to 256) {
+        val item@{i} = Item("item@{i}")
+    }
+
+    val number0 = Number1PSimple0
+    @for(i <- 1 to 256) {
+        val number@{i} = number@{i - 1}.method1(item@{i})
+    }
+}
