@@ -1,0 +1,19 @@
+@(current: Int)
+package ztuple3
+package test
+
+import zio.console._
+import zio.test._
+import zio.test.Assertion._
+import zio.test.environment._
+
+object ZTuple3FetchText@{current} extends DefaultRunnableSpec {
+    override def spec = suite("ztuple3 test @{current}")(
+        @for(i <- 1 to current) {
+            test("ztuple3 with @{current} should fetch the index @{i}") {
+                assert(NumberDefined.number@{current}(@ztuple3.codegen.StringUtil.indexFromNumber(i)))(equalTo(NumberDefined.item@{i}))
+            }
+            @if(i < current) { , }
+        }
+    )
+}

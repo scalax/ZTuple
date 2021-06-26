@@ -1,0 +1,2 @@
+ZTupleSettings.projectVersionSetting
+name := "ztuple"
